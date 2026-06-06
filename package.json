@@ -1,0 +1,7 @@
+{
+  "name": "ssrfserver-testing",
+  "private": true,
+  "scripts": {
+    "start": "node api/index.js"
+  }
+}
