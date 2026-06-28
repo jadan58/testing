@@ -12,6 +12,35 @@ module.exports = async function handler(req, res) {
   const target = url.searchParams.get("target");
   const code = Number(url.searchParams.get("code") || "302");
 
+  if (mode === "always-redirect" && target) {
+  console.log("ALWAYS_REDIRECT", req.method, "TO", target, "WITH", code);
+  res.setHeader("Location", target);
+  return res.status(code).end();
+}
+
+if (req.method === "GET" && mode === "sse") {
+  const endpoint = url.searchParams.get("endpoint") || "/api/mcp";
+
+  console.log("SSE_ENDPOINT_SENT:", endpoint);
+
+  res.writeHead(200, {
+    "content-type": "text/event-stream",
+    "cache-control": "no-cache, no-transform",
+    "connection": "keep-alive"
+  });
+
+  res.write(`event: endpoint\n`);
+  res.write(`data: ${endpoint}\n\n`);
+
+  res.write(`: keepalive\n\n`);
+
+  setTimeout(() => {
+    res.end();
+  }, 15000);
+
+  return;
+}
+
   let body = null;
 
   if (req.method === "POST") {
