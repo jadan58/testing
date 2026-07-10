@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+  xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:activiti="http://activiti.org/bpmn"
+  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+  xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+  xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+  typeLanguage="http://www.w3.org/2001/XMLSchema"
+  expressionLanguage="http://www.w3.org/1999/XPath"
+  targetNamespace="http://example.com/activiti-test">
+
+  <process id="harmless_test_process" name="Harmless Test Process" isExecutable="true">
+    <startEvent id="startEvent" name="Start" />
+    <sequenceFlow id="flow1" sourceRef="startEvent" targetRef="endEvent" />
+    <endEvent id="endEvent" name="End" />
+  </process>
+
+</definitions>
